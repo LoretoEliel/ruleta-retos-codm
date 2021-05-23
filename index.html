@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElielYoutube</title>
+  <link rel="stylesheet" href="./assets/libs/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <div id="ey-inicio" class="ey-box">
+    <h1 class="ey-title">RULETA <span class="ey-color-first ml-1">DE LA SUERTE</span></h1>
+    <div class="ey-row">
+      <div onclick="SHOW_RETOS()" class="card ey-border-animated">
+        <p>RETOS</p>
+      </div>
+      <div onclick="SHOW_SORTEO()" class="card ey-border-animated img-confeti">
+        <input id="ey-id-video" type="text" class="input-app" placeholder="SORTEO" autocomplete="off">
+      </div>
+    </div>
+    <img class="favicon" src="./assets/img/toxico.png">
+    <img class="barril" src="./assets/img/barril-toxico.png">
+  </div>
+
+  <div id="ey-retos" class="ey-box">
+    <div class="ey-box--modo">
+      <img id="ey-modo" class="ey-ruleta" src="./assets/img/modo/1.png">
+    </div>
+    <button onclick="GIRAR_RETOS()" class="ey-button">GIRAR</button>
+  </div>
+  
+  <div id="ey-sorteos" class="ey-box">
+    <div class="ey-row">
+      <div class="box-video">
+        <div class="video">
+          <img id="ey-img-video" class="imagen-video">
+        </div>
+        <div class="info">
+          <p id="ey-name-video" class="ey-name-video"></p>
+          <div class="flc">
+            <p class="cantidad-commet mr-1"><span class="fa fa-user-astronaut"></span> <span id="ey-cant-users">0</span></p>
+            <p class="cantidad-commet"><span class="fa fa-comment-alt"></span> <span id="ey-cant-commit">0</span></p>
+            <p class="cantidad-commet ml-1"><span onclick="LOAD_COMMIT()" class="reload-commit fa fa-sync-alt"></span> <span onclick="GET_WINNER_USER()" class="reload-commit ml-1 fa fa-play"></span></p>
+          </div>
+          <div class="flc">
+            <p class="cantidad-commet winner"><span class="fa fa-trophy"></span> <span id="ey-ganador">---</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="favicon" src="./assets/img/toxico.png">
+    <img class="barril" src="./assets/img/barril-toxico.png">
+  </div>
+
+  <div id="ey-br" class="ey-box">
+    <h1 class="ey-title">BATTLE <span class="ey-color-first ml-1">ROYALE</span> <button onclick="GIRAR_MJ()" class="ey-button ey-button--title ml-1">GIRAR</button></h1>
+    <div class="ey-row">
+      <div onclick="GET_ARMA_BR_1()" class="card ey-border-animated">
+        <p>ARMA #1</p>
+        <p id="ey-a1-br" class="usar">---</p>
+      </div>
+      <div onclick="GET_ARMA_BR_2()" class="card ey-border-animated">
+        <p>ARMA #2</p>
+        <p id="ey-a2-br" class="usar">---</p>
+      </div>
+      <div onclick="GET_CLASE()" class="card ey-border-animated">
+        <p>CLASE</p>
+        <p id="ey-clase" class="usar">---</p>
+      </div>
+    </div>
+    <img class="favicon" src="./assets/img/toxico.png">
+    <img class="barril" src="./assets/img/barril-toxico.png">
+  </div>
+
+  <div id="ey-mj" class="ey-box">
+    <h1 class="ey-title">MULTI <span class="ey-color-first ml-1">JUGADOR</span> <button onclick="GIRAR_MJ()" class="ey-button ey-button--title ml-1">GIRAR</button></h1>
+    <div class="ey-row">
+      <div onclick="GET_ARMA_MJ_1()" class="card ey-border-animated">
+        <p>ARMA #1</p>
+        <p id="ey-a1-mj" class="usar">---</p>
+      </div>
+      <div onclick="GET_ARMA_MJ_2()" class="card ey-border-animated">
+        <p>ARMA #2</p>
+        <p id="ey-a2-mj" class="usar">---</p>
+      </div>
+      <div onclick="GET_ACTITUD()" class="card ey-border-animated">
+        <p>ACTITUD</p>
+        <p id="ey-actitud-mj" class="usar">---</p>
+      </div>
+      <div onclick="GET_LETAL()" class="card ey-border-animated">
+        <p>LETAL</p>
+        <p id="ey-g1-mj" class="usar">---</p>
+      </div>
+      <div onclick="GET_TACTICO()" class="card ey-border-animated">
+        <p>TÁCTICO</p>
+        <p id="ey-g2-mj" class="usar">---</p>
+      </div>
+      <hr class="w-100">
+      <div onclick="GET_VENTAJA_1()" class="card ey-border-animated">
+        <p>VENTAJAS #1</p>
+        <p id="ey-v1-mj" class="usar">---</p>
+      </div>
+      <div onclick="GET_VENTAJA_2()" class="card ey-border-animated">
+        <p>VENTAJAS #2</p>
+        <p id="ey-v2-mj" class="usar">---</p>
+      </div>
+      <div onclick="GET_VENTAJA_3()" class="card ey-border-animated">
+        <p>VENTAJAS #3</p>
+        <p id="ey-v3-mj" class="usar">---</p>
+      </div>
+    </div>
+    <img class="favicon" src="./assets/img/toxico.png">
+    <img class="barril" src="./assets/img/barril-toxico.png">
+  </div>
+
+  <div id="load" class="load no-display">
+    <video id="ey-video" src="./assets/img/transition.webm"></video>
+  </div>
+
+  <div id="celebracion" class="celebracion no-display"></div>
+
+  <span onclick="RELOAD()" class="icon fa fa-home"></span>
+
+  <script src="./assets/js/scripts.js"></script>
+</body>
+</html>

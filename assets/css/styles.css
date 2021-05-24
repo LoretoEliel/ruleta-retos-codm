@@ -228,14 +228,14 @@ body {
 
 .ey-button {
   position: fixed;
+  top: 50%;
   left: 50%;
-  bottom: 38%;
-  transform: translate(-50%, 0) scale(1);
+  transform: translate(-50%, -50%) scale(1);
   border: none;
   box-shadow: 1px 1px 15px 0 var(--thirty-color);
   outline: none;
   display: block;
-  font-size: 5.25rem;
+  font-size: 4.25rem;
   background: var( --first-color);
   color: var( --white-color);
   font-family: var(--ff-title);
@@ -272,7 +272,11 @@ body {
 }
 
 .ey-button:active {
-  transform: translate(-50%, 0) scale(.85);
+  transform: translate(-50%, -50%) scale(.85);
+}
+
+.ey-button.ey-button--title:active {
+  transform: translate(0, 0) scale(.85);
 }
 
 .logo, .icon {
@@ -561,6 +565,37 @@ body {
   color: inherit;
   font-size: 1.25rem;
   margin-right: .5rem;
+}
+
+.ey-roulette {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.ey-roulette .ey-roulette__img {
+  display: block;
+  width: calc(100% / 2);
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: blur(10px);
+  transition: filter .05s ease-in-out;
+}
+
+.ey-roulette .ey-roulette__img:first-child {
+  object-position: left center;
+}
+
+.ey-roulette .ey-roulette__img:last-child {
+  object-position: top center;
+}
+
+.ey-roulette .ey-roulette__img.active {
+  filter: blur(0);
 }
 
 @media only screen and (max-width: 996px) {

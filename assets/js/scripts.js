@@ -418,39 +418,46 @@ const SHOW_RETOS = () => {
   }
 }
 
-const GIRAR_RETOS = () => {
-  let img = document.querySelector("#ey-modo");
+const GIRAR_RETO = () => {
+  let OPTIONS = document.querySelectorAll(".ey-roulette__img");
 
-  if (img) {
-    let i = 1;
-    let x = setInterval(() => {
-      let r = Math.floor(Math.random()*2);
-      r = r === 0 ? 2 : r;
-      console.log("Ready...");
-      img.src = `./assets/img/modo/${r}.png`;
+  let count = 0;
+    
+  let id = setInterval(() => {
+    OPTIONS.forEach(item => {
+      item.classList.remove("active");
+    });
+  
+    let r = Math.floor(Math.random()*OPTIONS.length);
+    r = r === 0 ? OPTIONS.length : r;
+  
+    OPTIONS[r - 1].classList.add("active");
 
-      i++;
-      if (i === 50) {
-        clearInterval(x);
+    count++;
+    if (count === 60) {
+      clearInterval(id);
 
-        setTimeout(() => {
-          if (EY_BR && r === 2) {
-            if (!EY_BR.classList.contains("show")) {
-              EY_RETOS.classList.remove("show");
-              EY_BR.classList.add("show");
-            }
+      setTimeout(() => {
+        if (EY_BR && r === 2) {
+          if (!EY_BR.classList.contains("show")) {
+            EY_RETOS.classList.remove("show");
+            EY_BR.classList.add("show");
           }
-
-          if (EY_MJ && r === 1) {
-            if (!EY_MJ.classList.contains("show")) {
-              EY_RETOS.classList.remove("show");
-              EY_MJ.classList.add("show");
-            }
+        }
+  
+        if (EY_MJ && r === 1) {
+          if (!EY_MJ.classList.contains("show")) {
+            EY_RETOS.classList.remove("show");
+            EY_MJ.classList.add("show");
           }
-        }, 500);
-      }
-    }, 100);
-  }
+        }
+
+        OPTIONS.forEach(item => {
+          item.classList.remove("active");
+        });
+      }, 1000);
+    }
+  }, 100);
 }
 
 const GET_ARMA_BR_1 = () => {

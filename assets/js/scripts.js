@@ -360,37 +360,52 @@ const LOAD_COMMIT_VIDEO_NEXT = (channel, NEXT_PAGE) => {
 }
 
 const GET_WINNER_USER = () => {
+  let array = [];
+  NAME_COMMIT_VIDEO.forEach(item => {
+    array.push(item);
+  });
+
   if (EY_LOAD) {
-    EY_LOAD.classList.remove("no-display");
-    if (EY_VIDEO) {
-      EY_VIDEO.play();
-    }
-
-    setTimeout(() => {
-      let array = [];
-
-      NAME_COMMIT_VIDEO_FILTER.forEach(item => {
-        array.push(item);
-      });
-      
-      let r = Math.floor(Math.random()*array.length);
+    let count = 0;
+    let r = 0;
+    
+    let id = setInterval(() => {
+      r = Math.floor(Math.random()*array.length);
       r = r === 0 ? array.length : r;
       EY_WINNER_VIDEO.innerHTML = ``;
       EY_WINNER_VIDEO.innerHTML = `<img class="photo" src="${array[r - 1].photo}"> ${array[r - 1].name}`;
-    }, 1000);
-
-    setTimeout(() => {
-      EY_LOAD.classList.add("no-display");
-
-      if (EY_CELEBRATION) {
-        EY_CELEBRATION.classList.remove("no-display");
-        
-        setTimeout(() => {
-          EY_CELEBRATION.classList.add("no-display");
-        }, 5000);
+      count++;
+      if (count === 100) {
+        clearInterval(id);
+        next = true;
+        WINNER(array);
       }
-    }, 2000);
+    }, 100);
   }
+}
+
+const WINNER = (array) => {
+  EY_LOAD.classList.remove("no-display");
+  if (EY_VIDEO) {
+    EY_VIDEO.play();
+  }
+  
+  let r = Math.floor(Math.random()*array.length);
+  r = r === 0 ? array.length : r;
+  EY_WINNER_VIDEO.innerHTML = ``;
+  EY_WINNER_VIDEO.innerHTML = `<img class="photo" src="${array[r - 1].photo}"> ${array[r - 1].name}`;
+
+  setTimeout(() => {
+    EY_LOAD.classList.add("no-display");
+
+    if (EY_CELEBRATION) {
+      EY_CELEBRATION.classList.remove("no-display");
+      
+      setTimeout(() => {
+        EY_CELEBRATION.classList.add("no-display");
+      }, 5000);
+    }
+  }, 2000);
 }
 
 const SHOW_RETOS = () => {

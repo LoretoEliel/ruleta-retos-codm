@@ -28,6 +28,7 @@ const EY_LOAD = document.querySelector("#load");
 const EY_CELEBRATION = document.querySelector("#celebracion");
 const EY_VIDEO = document.querySelector("#ey-video");
 const EY_INPUT_ID = document.querySelector("#ey-id-video");
+const EY_INPUT_ERROR = document.querySelector("#ey-error-input");
 
 let VIDEO_ID = "";
 let CHANNEL = "";
@@ -219,13 +220,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const SHOW_SORTEO = () => {
-  if (EY_INPUT_ID) {
+  if (EY_INPUT_ID && EY_INPUT_ERROR) {
     if (EY_INPUT_ID.value === "") {
-      EY_INPUT_ID.classList.add("input-app--error");
+      EY_INPUT_ERROR.classList.add("input-app--error");
       return false;
     }
     
-    EY_INPUT_ID.classList.remove("input-app--error");
+    EY_INPUT_ERROR.classList.remove("input-app--error");
     VIDEO_ID = EY_INPUT_ID.value;
 
     fetch(URL_GOOGLE_APIS + `&id=${VIDEO_ID}`).then(res => {
@@ -621,6 +622,7 @@ const RELOAD = () => {
     el.classList.remove("show");
   });
 
+  if (EY_INPUT_ID) EY_INPUT_ID.value = "";
   EY_INICIO.classList.add("show");
 }
 

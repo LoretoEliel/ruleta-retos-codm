@@ -95,6 +95,7 @@ body {
   --h: 200px;
   --wc: 297px;
   --hc: -197px;
+  --line-color: var(--first-color);
   box-sizing: border-box;
   box-shadow: 0 0 0 2px var(--thirty-color);
   background: var(--thirty-color);
@@ -117,7 +118,7 @@ body {
   flex-direction: column;
   line-height: 50px;
   margin: .5rem;
-  padding: 1em;
+  padding: 0;
   position: relative;
   border-radius: .25rem;
   user-select: none;
@@ -137,7 +138,7 @@ body {
   display: block;
   position: absolute;
   left: 0;
-  background: var(--first-color);
+  background: var(--line-color);
   transition: all 0.3s;
   border-radius: 10px;
 }
@@ -145,21 +146,21 @@ body {
   width: 0;
   height: 3px;
   bottom: 0;
-  box-shadow: var(--w) -197px var(--first-color);
+  box-shadow: var(--w) -197px var(--line-color);
 }
 .ey-border-animated:after {
   top: 0;
   width: 3px;
   height: 0;
-  box-shadow: 297px var(--h) var(--first-color);
+  box-shadow: 297px var(--h) var(--line-color);
 }
 .ey-border-animated:hover:before {
   width: 100%;
-  box-shadow: 0 -197px var(--first-color);
+  box-shadow: 0 -197px var(--line-color);
 }
 .ey-border-animated:hover:after {
   height: 100%;
-  box-shadow: 297px 0 var(--first-color);
+  box-shadow: 297px 0 var(--line-color);
 }
 
 .ey-border-animated p {
@@ -277,8 +278,8 @@ body {
 .logo, .icon {
   display: block;
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 1.15rem;
+  right: 13.5rem;
   margin: 0;
   padding: 0;
   width: 60px;
@@ -510,22 +511,56 @@ body {
 
 .input-app {
   display: block;
-  width: 90%;
+  width: 100%;
   height: 50px;
   border-radius: 10px;
   outline: none;
-  border: 2px solid var(--second-color);
+  border: 2px solid transparent;
   color: var(--first-color);
-  background: var(--thirty-color);
+  background: transparent;
   text-align: center;
   padding: .5rem 1rem;
-  font-family: var(--ff-title);
-  letter-spacing: 0.15rem;
-  font-size: 1.15rem;
+  font-family: var(--ff);
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-.input-app--error {
-  border-color: #ea3636;
+.ey-border-animated.input-app--error {
+  --line-color: #ea3636;
+}
+
+.canal {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: max-content;
+  height: max-content;
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  background: var(--thirty-color);
+  color: var(--white-color) !important;
+  text-decoration: none;
+}
+
+.canal img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.canal p {
+  margin: 0;
+  color: inherit;
+  font-size: 1.25rem;
+  margin-right: .5rem;
 }
 
 @media only screen and (max-width: 996px) {

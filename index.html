@@ -13,9 +13,9 @@
   <div id="ey-inicio" class="ey-box">
     <h1 class="ey-title">RULETA <span class="ey-color-first ml-1">DE LA SUERTE</span></h1>
     <div class="ey-row">
-      <!-- <div onclick="SHOW_RETOS()" class="card ey-border-animated">
+      <div onclick="SHOW_RETOS()" class="card ey-border-animated">
         <p>RETOS</p>
-      </div> -->
+      </div>
       <div onclick="SHOW_SORTEO()" id="ey-error-input" class="card ey-border-animated img-confeti">
         <input id="ey-id-video" type="text" class="input-app" placeholder="SORTEO" autocomplete="off">
       </div>
@@ -26,9 +26,12 @@
 
   <div id="ey-retos" class="ey-box">
     <div class="ey-box--modo">
-      <img id="ey-modo" class="ey-ruleta" src="./assets/img/modo/1.png">
+      <div id="ey-roulette" class="ey-roulette">
+        <img src="./assets/img/modo/1.png" class="ey-roulette__img">
+        <img src="./assets/img/modo/2.png" class="ey-roulette__img">
+      </div>
+      <button onclick="GIRAR_RETO()" class="ey-button">GIRAR</button>
     </div>
-    <button onclick="GIRAR_RETOS()" class="ey-button">GIRAR</button>
   </div>
   
   <div id="ey-sorteos" class="ey-box">
@@ -55,7 +58,7 @@
   </div>
 
   <div id="ey-br" class="ey-box">
-    <h1 class="ey-title">BATTLE <span class="ey-color-first ml-1">ROYALE</span> <button onclick="GIRAR_MJ()" class="ey-button ey-button--title ml-1">GIRAR</button></h1>
+    <h1 class="ey-title">BATTLE <span class="ey-color-first ml-1">ROYALE</span> <button onclick="GIRAR_BR()" class="ey-button ey-button--title ml-1">GIRAR</button></h1>
     <div class="ey-row">
       <div onclick="GET_ARMA_BR_1()" class="card ey-border-animated">
         <p>ARMA #1</p>

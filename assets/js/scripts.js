@@ -362,7 +362,7 @@ const LOAD_COMMIT_VIDEO_NEXT = (channel, NEXT_PAGE) => {
 
 const GET_WINNER_USER = () => {
   let array = [];
-  NAME_COMMIT_VIDEO.forEach(item => {
+  NAME_COMMIT_VIDEO_FILTER.forEach(item => {
     array.push(item);
   });
 
@@ -434,7 +434,7 @@ const GIRAR_RETO = () => {
     OPTIONS[r - 1].classList.add("active");
 
     count++;
-    if (count === 60) {
+    if (count === 70) {
       clearInterval(id);
 
       setTimeout(() => {
